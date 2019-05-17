@@ -94,7 +94,7 @@ return [
     'numeric' => 'The :attribute must be a number.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ':attribute ne smije biti prazan!',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -127,10 +127,18 @@ return [
     |
     */
 
+    /* ovdje dodajemo custom validacijske poruke */
+
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'title' => [
+            'required' => 'Naslov posta ne smije biti prazan!'
+        ],
+        'body' => [
+            'required' => 'Tekst posta ne smije biti prazan!'
+        ]
     ],
 
     /*

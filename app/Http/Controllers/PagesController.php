@@ -18,11 +18,11 @@ class PagesController extends Controller
 
     public function getAbout()
     {
-        return view('pages.about');
+
+        $dataToPass=[];
+        $dataToPass['authors'] = "Filip Šekerija i Jozo Spajić";
+        $dataToPass['git']= "https://github.com/jspajic/blog";
+        return view('pages.about')->withData($dataToPass);
     }
 
-    public function getContact()
-    {
-        return view('pages.contact');
-    }
 }
