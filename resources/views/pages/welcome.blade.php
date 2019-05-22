@@ -9,7 +9,7 @@
                     <h3>{{$post->title}}</h3>
                     <p>{{substr($post->body, 0,50)}}{{strlen($post->body) > 50 ? "..." : ""}}</p>
                     <p class="small font-weight-light">Dodano: {{date('d-m-Y',strtotime( $post-> created_at))}}</p>
-                    <a href="{{ url('posts/'.$post->id) }}" class="btn btn-primary mb-2">Opsirnije</a>
+                    <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary mb-2">Opsirnije</a>
                 </div>
 
         @endforeach

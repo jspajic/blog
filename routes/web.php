@@ -13,6 +13,7 @@
 
 
 Route::group(['middleware' => ['web']], function (){
+    Route::get('/blog/{slug}',['as' => 'blog.single','uses' =>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+'); //eksplicitno navedemo koji format slug-a podrzavamo (slova,brojevi,- i _)
     Route::get('/', 'PagesController@getIndex');
     Route::get('/about', 'PagesController@getAbout');
     Route::resource('posts','PostController');
