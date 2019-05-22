@@ -4,6 +4,8 @@
 #namespace pomaze da kontroleru kazemo da ostane u ovom folderu!
 namespace App\Http\Controllers;
 
+use App\Post;
+
 class PagesController extends Controller
 {
     #kad pravimo metode u kotrolerima nazivamo ih vrstazahtjevaImeMetode
@@ -12,7 +14,8 @@ class PagesController extends Controller
     #prima podatke od mode,a obraduje ih i predaje view
     public function getIndex()
     {
-        return view('pages.welcome');
+        $posts = Post::orderBy('created_at','desc')->paginate(4);
+        return view('pages.welcome')->withPosts($posts);
 
     }
 

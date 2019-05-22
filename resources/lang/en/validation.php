@@ -138,6 +138,10 @@ return [
         ],
         'body' => [
             'required' => 'Tekst posta ne smije biti prazan!'
+        ],
+        'slug' =>[
+            'unique' => 'Slug treba biti jedinstven',
+            'required' => 'Ne mozete spremiti promjene dok ne unesete slug!'
         ]
     ],
 

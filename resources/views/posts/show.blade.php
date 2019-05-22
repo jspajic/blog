@@ -10,7 +10,7 @@
                         {{$post->title}}
                     </h2>
                 </a>
-                <p>
+                <p class="text-break">
                     {{$post->body}}
                 </p>
                 <p class="post-meta">Dodao

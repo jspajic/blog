@@ -15,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //u varijablu spremiti sve postove iz baze
-        $posts = Post::all();
+        //u varijablu spremiti 10 postova iz baze
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
         //returnat view sa tim parametrima
         return view('posts.index')->withPosts($posts);
         //withPosts => with je naziv metode koja se koristi za prosljedivanje a Posts nas 'custom' naziv
@@ -50,13 +50,16 @@ class PostController extends Controller
         $this->validate($request, array(
             //body i title su columne u bazi
             'title' => 'required | max:119',
+            'slug' => 'required |alpha_dash| min:5 | max:255 | unique:posts',
             'body' => 'required'
+
         ));
         //elokventi i Spremanje u bazu
 
         $post = new Post;
 
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
 
         $post->save();
@@ -108,16 +111,29 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //validirati podatke
-        $this->validate($request, array(
-            //body i title su columne u bazi
-            'title' => 'required | max:119',
-            'body' => 'required'
-        ));
+        //kako kod uredivanje ne bi dobili error da slug vec postoji, time krsimo unique pravilo
+        $post = Post::find($id);
+        if ($request->input('slug') == $post->slug) {
+            $this->validate($request, array(
+                //body i title su columne u bazi
+                'title' => 'required | max:119',
+                'body' => 'required'
+            ));
+        } else {
+            //validirati podatke
+            $this->validate($request, array(
+                //body i title su columne u bazi
+                'title' => 'required | max:119',
+                'slug' => 'required|alpha_dash|min:5 |max:255|unique:posts',
+                'body' => 'required'
+            ));
+        }
+
         //Spremiti podatke u formu
         $post = Post::find($id);
 
         $post->title = $request->input('title');
+        $post->slug = $request->input('slug');
         $post->body = $request->input('body');
 
         $post->save();
@@ -140,7 +156,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        Session::flash('success','Post uspjesno obrisan.');
+        Session::flash('success', 'Post uspjesno obrisan.');
 
         return redirect()->route('posts.index');
     }

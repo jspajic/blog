@@ -32,6 +32,7 @@ a {
 
 a:focus, a:hover {
     color: #0085A1;
+    text-decoration: none;
 }
 
 blockquote {
@@ -268,7 +269,7 @@ header.masthead .post-heading .meta a {
 }
 
 .post-preview > a > .post-title {
-    font-size: 30px;
+    font-size: 10px;
     margin-top: 30px;
     margin-bottom: 10px;
 }
@@ -276,6 +277,11 @@ header.masthead .post-heading .meta a {
 .post-preview > a > .post-subtitle {
     font-weight: 300;
     margin: 0 0 10px;
+}
+
+post-body{
+    font-weight: 300;
+    margin: 10px;
 }
 
 .post-preview > .post-meta {
@@ -297,7 +303,7 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width: 768px) {
     .post-preview > a > .post-title {
-        font-size: 36px;
+        font-size: 18px;
     }
 }
 
@@ -405,4 +411,8 @@ footer .copyright {
 .btn-lg {
     font-size: 16px;
     padding: 25px 35px;
+}
+
+.text-break{
+    overflow-wrap: break-word;
 }

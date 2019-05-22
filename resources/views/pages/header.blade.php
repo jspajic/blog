@@ -22,6 +22,8 @@
 
     <!-- Custom styles-->
     <link href="{{ asset('css/clean-blog.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -32,12 +34,6 @@
     <div class="container">
 
         <a class="navbar-brand" href="{{url('/')}}">TechToday</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -46,21 +42,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('about')}}">About</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown text" >
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Welcome! <span class="caret"></span></a href="/">
                     <ul class="dropdown-menu">
-                        <li><a href="#">Posts</a></li>
-                        <li><a href="#">Categories</a></li>
-                        <li><a href="#">Tags</a></li>
+                        <li><a href="{{url('/posts')}}" class="text-secondary">Posts</a></li>
+                        <li><a href="#" class="text-secondary">Categories</a></li>
+                        <li><a href="#" class="text-secondary">Tags</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Logout</a></li>
+                        <hr>
+                        <li><a href="#" class="text-secondary">Logout</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Page Header -->
 <header class="masthead"
