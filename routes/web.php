@@ -13,6 +13,15 @@
 
 
 Route::group(['middleware' => ['web']], function (){
+    //Auth rute
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    //register  rute
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'Auth\RegisterController@register');
+
+    //Ostale rute
     Route::get('/blog/{slug}',['as' => 'blog.single','uses' =>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+'); //eksplicitno navedemo koji format slug-a podrzavamo (slova,brojevi,- i _)
     Route::get('/', 'PagesController@getIndex');
     Route::get('/about', 'PagesController@getAbout');
