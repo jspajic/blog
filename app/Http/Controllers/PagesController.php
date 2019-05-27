@@ -14,7 +14,7 @@ class PagesController extends Controller
     #prima podatke od mode,a obraduje ih i predaje view
     public function getIndex()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(4);
+        $posts = Post::orderBy('created_at','desc')->paginate(2);
         return view('pages.welcome')->withPosts($posts);
 
     }

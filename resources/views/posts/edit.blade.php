@@ -1,5 +1,7 @@
 @include('pages.header')
 
+{{--TODO dodati tinymce editor--}}
+
 <div class="row" id="form">
     <div class="col-md-8 offset-2">
         <h1>Kreiraj novi post</h1>

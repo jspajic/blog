@@ -13,7 +13,10 @@
         <br>
         {{Form::submit('Prijava',['class'=> 'btn btn-primary form-spacing-top'])}}
         {!! Form::close() !!}
+        <p>Nemas racun? <a href="{{route('register')}}">Registriraj se!</a> </p>
+
     </div>
+
 </div>
 @include('pages.footer')
 

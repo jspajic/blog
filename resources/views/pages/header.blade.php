@@ -42,17 +42,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('about')}}">About</a>
                 </li>
-                <li class="nav-item dropdown text" >
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">Welcome! <span class="caret"></span></a href="/">
-                    <ul class="dropdown-menu">
-                        <li><a href="{{url('/posts')}}" class="text-secondary">Posts</a></li>
-                        <li><a href="#" class="text-secondary">Categories</a></li>
-                        <li><a href="#" class="text-secondary">Tags</a></li>
-                        <li role="separator" class="divider"></li>
-                        <hr>
-                        <li><a href="#" class="text-secondary">Logout</a></li>
-                    </ul>
+                <li class="nav-item dropdown text">
+                    @if(Auth::check())
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Dobrodosao, {{Auth::user()->name}}! <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="{{url('/posts')}}" class="text-secondary">Posts</a></li>
+                            <li><a href="#" class="text-secondary">Categories</a></li>
+                            <li><a href="#" class="text-secondary">Tags</a></li>
+                            <li role="separator" class="divider"></li>
+                            <hr>
+                            <li><a href="{{route('logout')}}" class="text-secondary">Logout</a></li>
+                        </ul>
+                    @else
+                        <a href="{{route('login')}}" class="btn">Prijava</a>
+                    @endif
                 </li>
             </ul>
         </div>
