@@ -142,7 +142,10 @@ return [
         'slug' =>[
             'unique' => 'Slug treba biti jedinstven',
             'required' => 'Ne mozete spremiti promjene dok ne unesete slug!'
-        ]
+        ],
+        'name' => [
+            'required' => 'Naziv ne smije biti prazan!'
+        ],
     ],
 
     /*

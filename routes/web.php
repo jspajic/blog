@@ -21,6 +21,9 @@ Route::group(['middleware' => ['web']], function (){
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
 
+    //Kategorije
+    Route::resource('categories','CategoryController', ['except' => ['create']]);//automatski dodaje rute za CRUD
+
     //Ostale rute
     Route::get('/blog/{slug}',['as' => 'blog.single','uses' =>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+'); //eksplicitno navedemo koji format slug-a podrzavamo (slova,brojevi,- i _)
     Route::get('/', 'PagesController@getIndex');

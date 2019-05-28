@@ -47,8 +47,8 @@
                            aria-haspopup="true" aria-expanded="false">Dobrodosao, {{Auth::user()->name}}! <span class="caret"></span></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="{{url('/posts')}}" class="text-secondary">Posts</a></li>
-                            <li><a href="#" class="text-secondary">Categories</a></li>
+                            <li><a href="{{route('posts.index')}}" class="text-secondary">Postovi</a></li>
+                            <li><a href="{{route('categories.index')}}" class="text-secondary">Kategorije</a></li>
                             <li><a href="#" class="text-secondary">Tags</a></li>
                             <li role="separator" class="divider"></li>
                             <hr>
