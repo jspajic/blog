@@ -4,6 +4,7 @@
 
 <div class="row" id="form">
     <div class="col-md-8 offset-2">
+
         <h1>Kreiraj novi post</h1>
         <hr>
         {{Form::model($post, ['route'=>['posts.update',$post->id], 'method' => 'PUT'])}} {{--Otvaramo formu i povezujemo je s kontrolerom! --}}

@@ -7,7 +7,7 @@
         @foreach($posts as $post)
                 <div class="post border border-light mb-2 mt-2 shadow p-3 mb-5 bg-white rounded">
                     <h3>{{$post->title}}</h3>
-                    <p>{{substr($post->body, 0,50)}}{{strlen($post->body) > 50 ? "..." : ""}}</p>
+                    <p>{{substr($post->body, 0,150)}}{{strlen($post->body) > 150 ? "..." : ""}}</p>
                     <p class="small font-weight-light">Dodano: {{date('d-m-Y',strtotime( $post-> created_at))}}</p>
                     <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary mb-2">Opsirnije</a>
                 </div>
