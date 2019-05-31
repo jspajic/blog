@@ -4,6 +4,7 @@
 #namespace pomaze da kontroleru kazemo da ostane u ovom folderu!
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;
 
 class PagesController extends Controller
@@ -15,7 +16,8 @@ class PagesController extends Controller
     public function getIndex()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(2);
-        return view('pages.welcome')->withPosts($posts);
+        $categories = Category::all();
+        return view('pages.welcome')->withPosts($posts)->withCategories($categories);
 
     }
 

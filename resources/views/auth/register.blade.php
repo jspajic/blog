@@ -17,6 +17,7 @@
 
             {{Form::submit('Registriraj se!',['class' => 'btn btn-primary btn-block form-spacing-top'])}}
         {!!Form::close()!!}
+        <p>Vec imate racun? <a href="{{route('login')}}">Logirajte se!</a> </p>
     </div>
 </div>
 @include('pages.footer')

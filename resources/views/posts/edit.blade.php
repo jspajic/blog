@@ -9,11 +9,14 @@
         <hr>
         {{Form::model($post, ['route'=>['posts.update',$post->id], 'method' => 'PUT'])}} {{--Otvaramo formu i povezujemo je s kontrolerom! --}}
 
-        {{Form::label('title','Naslov:')}}
+        {{Form::label('title','Naslov:', ['class'=>'form-spacing-top'])}}
         {{Form::text('title',null, ["class" => 'form-control post-title'])}}
 
-        {{Form::label('slug','Slug')}}
-        {{Form::text('slug',null,["class" => 'form-control'])}}
+        {{Form::label('slug','Slug', ['class'=>'form-spacing-top'])}}
+        {{Form::text('slug',null,["class" => 'form-control '])}}
+
+        {{Form::label('category_id', 'Kategorija: ', ['class'=>'form-spacing-top'])}}
+        {{Form::select('category_id',$categories,null,['class' => 'form-control'])}}
 
         {{Form::label('body','Sadrzaj:', ['class'=>'form-spacing-top'])}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}

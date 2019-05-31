@@ -11,6 +11,13 @@
             {{Form::label('slug',"Slug")}}
             {{Form::text('slug',null,array('class' => 'form-control', 'required' => '', 'minLength' => '5','maxLength' => '255'))}}
 
+            {{Form::label('category_id', 'Kategorija: ')}}
+            <select class="form-control " name="category_id">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}" class="form-spacing-top">{{$category->name}}</option>
+                @endforeach
+            </select>
+
             {{Form::label('body',"Tekst")}}
             {{Form::textarea('body',null,array('class' => 'form-control'))}}
 

@@ -13,7 +13,7 @@
                 </p>
                 <p class="post-meta">Dodao
                     <a href="#">Neki Korisnik</a>
-                    {{date('d-m-Y',strtotime( $post-> created_at))}}</p>
+                    {{date('d-m-Y',strtotime( $post-> created_at))}} | <b>Kategorija: </b>{{$post->category->name}}</p>
                 {{--                TODO povuci korisnika--}}
             </div>
             <hr>
