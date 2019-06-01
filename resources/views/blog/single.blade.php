@@ -6,7 +6,7 @@
             <hr>
             <div class="post-preview">
 
-                <p> <!--Tu ce ici link -->
+                <p>
                 <h4 class="post-title text-primary">
                     {{$post->title}}
                 </h4>
@@ -19,9 +19,16 @@
                     {{date('d-m-Y',strtotime( $post-> created_at))}}</p>
                 {{--                TODO povuci korisnika--}}
 
+
             </div>
 
             <hr>
+
+            <small>
+                @foreach($post->tags as $tag)
+                    <span class="badge badge-light">{{$tag->name}}</span>
+                @endforeach
+            </small>
         </div>
     </div>
 </div>

@@ -13,17 +13,19 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Custom fonts -->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles-->
+
     <link href="{{ asset('css/clean-blog.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 </head>
 
 <body>
@@ -49,7 +51,7 @@
 
                             <li><a href="{{route('posts.index')}}" class="text-secondary">Postovi</a></li>
                             <li><a href="{{route('categories.index')}}" class="text-secondary">Kategorije</a></li>
-                            <li><a href="#" class="text-secondary">Tags</a></li>
+                            <li><a href="{{route('tags.index')}}" class="text-secondary">Tagovi</a></li>
                             <li role="separator" class="divider"></li>
                             <hr>
                             <li><a href="{{route('logout')}}" class="text-secondary">Logout</a></li>

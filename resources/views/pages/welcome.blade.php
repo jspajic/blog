@@ -9,10 +9,15 @@
                     <h3>{{$post->title}}</h3>
                     <p>{{substr($post->body, 0,150)}}{{strlen($post->body) > 150 ? "..." : ""}}</p>
                     <p class="small font-weight-light">Dodano: {{date('d-m-Y',strtotime( $post-> created_at))}} u kategoriju: {{$post->category->name}}</p>
+                    <div class="mb-3">
+                        <small>
+                            @foreach($post->tags as $tag)
+                                <span class="badge badge-light">{{$tag->name}}</span>
+                            @endforeach
+                        </small>
+                    </div>
                     <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary mb-2 align-content-md-end">Opsirnije</a>
-
                 </div>
-
         @endforeach
     </div>
     {!!$posts->links() !!}

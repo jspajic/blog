@@ -5,9 +5,10 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
-                    <h2 class="post-title">
-                        {{$post->title}}
-                    </h2>
+                <h2 class="post-title">
+                    {{$post->title}}
+                </h2>
+                <hr>
                 <p class="text-break">
                     {{$post->body}}
                 </p>
@@ -15,6 +16,12 @@
                     <a href="#">Neki Korisnik</a>
                     {{date('d-m-Y',strtotime( $post-> created_at))}} | <b>Kategorija: </b>{{$post->category->name}}</p>
                 {{--                TODO povuci korisnika--}}
+                <small>
+                    @foreach($post->tags as $tag)
+                        <span class="badge badge-light">{{$tag->name}}</span>
+                    @endforeach
+                </small>
+
             </div>
             <hr>
             <div class="row">

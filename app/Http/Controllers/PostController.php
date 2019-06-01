@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Session;
 
@@ -37,8 +38,9 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view('posts.create')->withCategories($categories);
+        return view('posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -75,6 +77,7 @@ class PostController extends Controller
 
         $post->save();
 
+        $post->tags()->sync($request->tags,false);
 
         //flash message za uspjesno dodavanje u bazu
         Session::flash('success', 'Post uspjesno dodan!');
@@ -114,8 +117,14 @@ class PostController extends Controller
         foreach ($categories as $category){
             $cats[$category->id] = $category->name;
         }
+
+        $tags = Tag::all();
+        $tags2 = array();
+        foreach ($tags as $tag){
+            $tags2[$tag->id] = $tag->name;
+        }
         //vrati ga u view
-        return view('posts.edit')->withPost($post)->withCategories($cats);//prosljedimo asocijativni niz
+        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);//prosljedimo asocijativni niz
     }
 
     /**
@@ -156,6 +165,8 @@ class PostController extends Controller
         $post->body = $request->input('body');
 
         $post->save();
+
+        $post->tags()->sync($request->tags, true);
         //poslati success poruku
         Session::flash('success', 'Post uspjesno spremljen.');
 

@@ -24,6 +24,9 @@ Route::group(['middleware' => ['web']], function (){
     //Kategorije
     Route::resource('categories','CategoryController', ['except' => ['create']]);//automatski dodaje rute za CRUD
 
+    //Tagovi
+    Route::resource('tags','TagController', ['except' => ['create']]);
+
     //Ostale rute
     Route::get('/blog/{slug}',['as' => 'blog.single','uses' =>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+'); //eksplicitno navedemo koji format slug-a podrzavamo (slova,brojevi,- i _)
     Route::get('/', 'PagesController@getIndex');

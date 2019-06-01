@@ -18,6 +18,9 @@
         {{Form::label('category_id', 'Kategorija: ', ['class'=>'form-spacing-top'])}}
         {{Form::select('category_id',$categories,null,['class' => 'form-control'])}}
 
+        {{Form::label('tags', 'Tagovi: ',['class' => 'form-spacing-top'])}}
+        {{Form::select('tags[]',$tags,null,['class' => 'form-control select2-multiple', 'multiple' => 'multiple'])}}
+
         {{Form::label('body','Sadrzaj:', ['class'=>'form-spacing-top'])}}
         {{Form::textarea('body',null,['class'=>'form-control'])}}
 
@@ -34,5 +37,9 @@
     </div>
 </div>
 
+
+<script type="text/javascript">
+    $('.select2-multiple').select2();
+</script>
 
 @include('pages.footer')
