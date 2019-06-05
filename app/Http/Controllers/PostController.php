@@ -24,7 +24,7 @@ class PostController extends Controller
     public function index()
     {
         //u varijablu spremiti 10 postova iz baze
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'asc')->paginate(5);
         //returnat view sa tim parametrima
         return view('posts.index')->withPosts($posts);
         //withPosts => with je naziv metode koja se koristi za prosljedivanje a Posts nas 'custom' naziv

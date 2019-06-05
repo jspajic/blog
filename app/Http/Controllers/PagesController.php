@@ -10,9 +10,9 @@ use App\Post;
 class PagesController extends Controller
 {
     #kad pravimo metode u kotrolerima nazivamo ih vrstazahtjevaImeMetode
-    #svaka funkcija procesira neke parametre
+    #svaka funkcija prima neke parametre
     #komunicira s modelom
-    #prima podatke od mode,a obraduje ih i predaje view
+    #prima podatke od modela,a obraduje ih i predaje view
     public function getIndex()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(2);

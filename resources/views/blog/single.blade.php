@@ -1,3 +1,6 @@
+{{--Ovaj view vraca post dohvacen preko slug-a--}}
+{{--Koristimo ga kako bi korisnike koji ne pripadaju skupini 'auth' odvojili--}}
+
 @include('pages.header')
 <div class="container">
 <p class="text-center text-dark text-uppercase font-weight-bold ">{{$post->category->name}}</p></p>
