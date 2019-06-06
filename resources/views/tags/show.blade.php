@@ -28,8 +28,15 @@
                 </small>
             </h2>
         </div>
-        <div class="col-md-2 offset-md-2">
+        <div class="col-md-2">
             <a class="btn btn-primary" href="{{route('tags.edit',$tag->id)}}">Uredi tag </a>
+        </div>
+        <div class="col-md-2">
+            {!! Form::open(['route' => ['tags.destroy',$tag->id],'method'=> 'DELETE']) !!}
+
+            {!! Form::submit('Obrisi tag',['class' => 'btn btn-danger btn-block']) !!}
+
+            {!! Form::close() !!}
         </div>
     </div>
     <hr>

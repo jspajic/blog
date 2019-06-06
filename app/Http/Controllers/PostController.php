@@ -183,6 +183,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        //dohvacamo $post, referenciramo tags() i pozivamo metodu detach
+        $post->tags()->detach();
 
         $post->delete();
 
