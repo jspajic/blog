@@ -27,9 +27,13 @@ Route::group(['middleware' => ['web']], function (){
     //Tagovi
     Route::resource('tags','TagController', ['except' => ['create']]);
 
+
     //Ostale rute
     Route::get('/blog/{slug}',['as' => 'blog.single','uses' =>'BlogController@getSingle'])->where('slug','[\w\d\-\_]+'); //eksplicitno navedemo koji format slug-a podrzavamo (slova,brojevi,- i _)
     Route::get('/', 'PagesController@getIndex');
     Route::get('/about', 'PagesController@getAbout');
     Route::resource('posts','PostController');
 });
+
+//KOmentari
+Route::post('comments/{post_id}',['uses' => 'CommentsController@store', 'as' =>'comments.store']);
