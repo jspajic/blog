@@ -102,6 +102,12 @@ class CommentsController extends Controller
         //
     }
 
+    public function delete($id){
+        $comment = Comment::find($id);
+
+        return view('comments.delete')->withComment($comment);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -110,6 +116,12 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        $post_id =$comment->post->id;
+        $comment->delete();
+
+        Session::flash('success', 'Komentar uspjesno obrisan.');
+
+        return redirect()->route('posts.show',[$post_id]);
     }
 }

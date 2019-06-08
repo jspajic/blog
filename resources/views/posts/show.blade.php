@@ -39,6 +39,35 @@
             </div>
         </div>
     </div>
+    <div id="backend-comments" class="form-spacing-top col-lg-8 col-md-10 mx-auto">
+        <h3>Ukupno komentara:
+            <small>{{$post->comments()->count()}}</small>
+        </h3>
+        <hr>
+        <table class="table">
+            <thead>
+                <th>Ime:</th>
+                <th>Email:</th>
+                <th>Komentar:</th>
+                <th></th>
+            </thead>
+                <tbody>
+                @foreach($post->comments as $comment)
+                <tr class="p-0">
+                    <td>{{$comment->name}}</td>
+                    <td>{{$comment->email}}</td>
+                    <td>{{$comment->comment}}</td>
+                    <td>
+
+
+{{--                        <a class="btn btn-sm p-0" href="{{route('comments.edit', $comment->id)}}" role="button"><i class="far fa-edit"></i></a>--}}
+                        <a class="btn btn-sm p-0" href="{{route('comments.delete',$comment->id)}}" role="button"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @include('pages.footer')

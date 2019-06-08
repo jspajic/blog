@@ -416,3 +416,7 @@ footer .copyright {
 .text-break{
     overflow-wrap: break-word;
 }
+
+.no-padding{
+    padding: 0;
+}

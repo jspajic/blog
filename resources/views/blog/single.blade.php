@@ -35,10 +35,10 @@
             <hr>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-8 offset-md-2 form-spacing-top">
-            <h3 class="comments-title"><span
-                        class="glyphicon glyphicon-comment"></span> {{ $post->comments()->count()}} Comments</h3>
+            <h3 class="comments-title">{{ $post->comments()->count()}} Comments</h3>
             @foreach($post->comments as $comment)
                 <div class="comment border border-light mb-2 mt-2 shadow p-3 mb-5 bg-white rounded">
                     <div class="author-info">
