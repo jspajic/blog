@@ -10,7 +10,7 @@
                 </h2>
                 <hr>
                 <p class="text-break">
-                    {{$post->body}}
+                    {!! $post->body !!}
                 </p>
                 <p class="post-meta">Dodao
                     <a href="#">Neki Korisnik</a>

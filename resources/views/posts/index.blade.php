@@ -31,7 +31,7 @@
                             {{$post->title}}
                         </td>
                         <td>
-                            {{substr($post->body, 0,50)}}{{strlen($post->body) > 50 ? "..." : ""}} {{--povlacimo samo prvih 50 znakova iz sadrzaja--}}
+                            {{substr(strip_tags($post->body), 0,50)}}{{strlen($post->body) > 50 ? "..." : ""}} {{--povlacimo samo prvih 50 znakova iz sadrzaja--}}
                         </td>
                         <td>
                             {{date('d-m-Y',strtotime( $post-> created_at))}}
