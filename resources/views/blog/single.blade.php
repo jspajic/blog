@@ -14,6 +14,7 @@
                     {{$post->title}}
                 </h4>
                 </p>
+                <img src="{{asset('images/'.$post->image)}}" alt="{{$post->image}}" width="800" height="400"/>
                 <p class="text-break">
                     {!! $post->body !!}
                 </p>

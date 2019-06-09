@@ -6,6 +6,7 @@ use App\Category;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use Image;
 use Session;
 
 class PostController extends Controller
@@ -63,6 +64,7 @@ class PostController extends Controller
             'title' => 'required | max:119',
             'slug' => 'required |alpha_dash| min:5 | max:255 | unique:posts',
             'category_id' => 'required|integer',
+            'image' => 'max:119',
             'body' => 'required'
 
         ));
@@ -73,8 +75,24 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
 
+        //spremiti sliku
+        if($request->hasFile('featured_image')){
+            $image = $request->file('featured_image'); //dohvacamo sliku iz requesta
+
+            //mijenjamo ime kako nebi doslo do konflikta u bazi(isti nazivi)
+            //pozivom zadnje metode ekstraktiramo ekstenziju!
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            //kreiramo lokaciju
+            $location = public_path('images/' . $filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            //spremanje u bazu
+
+            $post->image = $filename;
+        }
+
+        $post->body = $request->body;
         $post->save();
 
         $post->tags()->sync($request->tags,false);

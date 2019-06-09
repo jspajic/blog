@@ -14,14 +14,15 @@
         content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//www.tiny.cloud/css/codepen.min.css'
-        ]
+        ],
+        entity_encoding : "raw"
     });
 </script>
 <div class="row" id="form">
     <div class="col-md-8 offset-2">
         <h1>Kreiraj novi post</h1>
         <hr>
-        {!! Form::open(['route' => 'posts.store']) !!}
+        {!! Form::open(['route' => 'posts.store', 'files' => true]) !!}
             {{Form::label('Naslov',"") }}
             {{Form::text('title',null,array('class' => 'form-control', 'required' => ''))}}
 
@@ -41,12 +42,13 @@
                     <option value="{{$tag->id}}" class="form-spacing-top">{{$tag->name}}</option>
                 @endforeach
             </select>
-
+            {{Form::label('featured_image', 'Slika:')}}
+            {{Form::file('featured_image',['class' => 'form-spacing-top'])}}
+            <br>
             {{Form::label('body',"Tekst")}}
             {{Form::textarea('body',null,array('class' => 'form-control'))}}
 
-
-            {{ Form::submit('Stvori Post',array('class' => 'btn btn-success btn-block ','style' => 'margin-top:20px')) }}
+            {{ Form::submit('Stvori Post',array('class' => 'btn btn-success btn-block form-spacing-top')) }}
         {!! Form::close() !!}
     </div>
 </div>

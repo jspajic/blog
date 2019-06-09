@@ -5,10 +5,12 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-preview">
+
                 <h2 class="post-title">
                     {{$post->title}}
                 </h2>
                 <hr>
+                <img src="{{asset('images/'.$post->image)}}" alt="{{$post->image}}" width="800" height="400"/>
                 <p class="text-break">
                     {!! $post->body !!}
                 </p>
