@@ -56,4 +56,5 @@
     $('.select2-multiple').select2();
 </script>
 
+
 @include('pages.footer')
