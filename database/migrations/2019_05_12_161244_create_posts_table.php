@@ -17,7 +17,12 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('body');
-            //$table->bigInteger('user_id');
+            $table->string('slug')->unique();
+            //indeksiramo slug jer ce se preko njega raditi cesti SELECT iskazi!
+            $table->integer('category_id')->unsigned() ;
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('image')->nullable(true);
             $table->timestamps();
         });
     }

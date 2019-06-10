@@ -15,9 +15,8 @@
                     {!! $post->body !!}
                 </p>
                 <p class="post-meta">Dodao
-                    <a href="#">Neki Korisnik</a>
+                    <a href="#">{{$post->user->name}}</a>
                     {{date('d-m-Y',strtotime( $post-> created_at))}} | <b>Kategorija: </b>{{$post->category->name}}</p>
-                {{--                TODO povuci korisnika--}}
                 <small>
                     @foreach($post->tags as $tag)
                         <span class="badge badge-light">{{$tag->name}}</span>

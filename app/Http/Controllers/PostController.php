@@ -6,6 +6,7 @@ use App\Category;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Image;
 use Session;
 
@@ -75,7 +76,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-
+        $post->user_id = Auth::id();
         //spremiti sliku
         if($request->hasFile('featured_image')){
             $image = $request->file('featured_image'); //dohvacamo sliku iz requesta
