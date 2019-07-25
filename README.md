@@ -10,7 +10,7 @@
 
 👤 **Filip Sekerija i Jozo Spajic**
 
-* Github: [@jspajic](https://github.com/jspajic) [@fpmoz11017](https://github.com/fpmoz11017)
+* Github: [@fpmoz11017](https://github.com/fpmoz11017) [@jspajic](https://github.com/jspajic) 
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
